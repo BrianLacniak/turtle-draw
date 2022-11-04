@@ -11,23 +11,32 @@ turtleScreen.setup(450,450)
 
 turtleApp = turtle.Turtle()
 
+turtleApp.color("green")
+turtleApp.goto(100,100)
+
+
 txtFileName = "turtle-draw.txt"
 
 file = open(txtFileName, "r")
 line = file.readline()
 
 while line: 
-        parts=line.split()
+        parts=line.split(" ")
         print(parts)
         if (len (parts) ==3):
-            print(parts[0])
-            print(int(parts[1]))
-            print(int(parts[2]))
-    
+            color = parts[0]
+            x = int(parts[1])
+            y = int(parts[2])
+            turtleApp.color(color)
+            turtleApp.goto(x, y)
+            turtleApp.pendown()
     
         if (len (parts) == 1):
-            print("1 part")
+            turtleApp.penup()
+
+           
 
 
         line = file.readline()
 
+turtle.done()
